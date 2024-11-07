@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            background-image: url('header-image.jpg'); /* Replace with your image */
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+        .workout-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .workout-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .workout-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .start-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>chest BEGINNER</h1>
+        <img id="headerGif" src="{% static 'images/Jumping jacks.gif' %}" alt="Workout GIF">
+        <p>21 mins • 16 Workouts</p>
+    </div>
+
+    <ul class="workout-list">
+        <li class="workout-item" onclick="changeHeaderGif('{% static 'images/Jumping jacks.gif' %}')">
+            <img src="{% static 'images/Jumping jacks.gif' %}" alt="Jumping Jacks">
+            <div>
+                <h3>Jumping Jacks</h3>
+                <p>00:20</p>
+            </div>
+        </li>
+        <li class="workout-item" onclick="changeHeaderGif('{% static 'images/Incline-Push-UP.gif' %}')">
+            <img src="{% static 'images/Incline-Push-UP.gif' %}" alt="Incline Push-up">
+            <div>
+                <h3>Incline Push-up</h3>
+                <p>x16</p>
+            </div>
+        </li>
+        <li class="workout-item" onclick="changeHeaderGif('{% static 'images/knee.gif' %}')">
+            <img src="{% static 'images/knee.gif' %}" alt="Incline Push-up">
+            <div>
+                <h3>KNEE Push-up</h3>
+                <p>x16</p>
+            </div>
+        </li>
+        <li class="workout-item" onclick="changeHeaderGif('{% static 'images/pushups.gif' %}')">
+            <img src="{% static 'images/pushups.gif' %}" alt="Incline Push-up">
+            <div>
+                <h3>Push-up Push-up</h3>
+                <p>x16</p>
+            </div>
+        </li>
+        <li class="workout-item" onclick="changeHeaderGif('{% static 'images/wide arm.gif' %}')">
+            <img src="{% static 'images/wide arm.gif' %}" alt="Incline Push-up">
+            <div>
+                <h3>WIDE ARM Push-up</h3>
+                <p>x16</p>
+            </div>
+        </li>
+        <!-- Add more workouts similarly -->
+    </ul>
+
+    <a href="#" class="start-button">Start</a>
+
+    <script>
+        function changeHeaderGif(gifUrl) {
+            document.getElementById('headerGif').src = gifUrl;
+        }
+    </script>
+
+</body>
+</html>

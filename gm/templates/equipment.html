@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Workout</title>
+    <style>
+     /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Background color behind images */
+    color: #fff; /* Default text color */
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* Workout Section Styles */
+.workout-section {
+    margin-top: 100px; /* To avoid overlap with fixed header */
+}
+
+.workout-item {
+    position: relative;
+    height: 40vh; /* Full viewport height */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 5%;
+    margin-left: 4%;
+    margin-right: 4%;
+    border-radius: 30px;
+}
+
+.workout-item h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.workout-item p {
+    font-size: 20px;
+    z-index: 2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Footer Styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .workout-item h2 {
+        font-size: 36px;
+    }
+    
+    .workout-item p {
+        font-size:18px;
+}
+}
+
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>HOME WORKOUT</h1>
+        <nav>
+            <ul>
+                <li><a href="#Beginner" class="active">Beginner</a></li>
+                <li><a href="#Intermediate">Intermediate</a></li>
+                <li><a href="#Advanced">Advanced</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="workout-list" id="Beginner">
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chestbegnier'">
+            <div class="overlay"></div>
+            <h2>CHEST BEGINNER</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>LEG BEGINNER</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>ARM BEGINNER</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='AB'">
+            <div class="overlay"></div>
+            <h2>ABS BEGINNER</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+
+        <!-- Add more workout items similar to the one above -->
+    </section>
+
+
+    <section class="workout-list" id="Intermediate">
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chestbegnier'">
+            <div class="overlay"></div>
+            <h2>CHEST Intermediate</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>LEG Intermediate</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>ARM Intermediate</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>ABS Intermediate</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+
+        <!-- Add more workout items similar to the one above -->
+    </section>
+
+    <section class="workout-list" id="Advanced">
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chestbegnier'">
+            <div class="overlay"></div>
+            <h2>CHEST Advanced</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>LEG Advanced</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>ARM Advanced</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+        <div class="workout-item" style="background-image: url({% static 'images/chestbeg.jpg' %});" onclick="window.location.href='chest-beginner.html'">
+            <div class="overlay"></div>
+            <h2>ABS Advanced</h2>
+            <p>11 MINS • 11 EXERCISES</p>
+        </div>
+
+
+        <!-- Add more workout items similar to the one above -->
+    </section>
+
+
+
+    <footer>
+        <div class="footer-nav">
+            <a href="#">Training</a>
+            <a href="#">Discover</a>
+            <a href="#">Report</a>
+            <a href="#">Settings</a>
+        </div>
+    </footer>
+</body>
+</html>
