@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
 from django.contrib import messages 
 from django.contrib.auth.models import User
@@ -11,11 +11,52 @@ def hame(request):
 def Equpment(request):
     return render(request,"equipment.html")
 
-def chestB(request):
-    return render(request,"chestbegnier.html")
 
-def absB(request):
-    return render(request,"AB.html")
+# def workout_view(request, workout_type):
+#     # You can add logic to dynamically select a template or content based on the workout_type
+#     template_name = f"{workout_type}.html"  # e.g., chestbegnier.html, legs.html, etc.
+    
+#     # context = {
+#     #     'workout_type': workout_type,
+#     #     # You can pass additional context if needed
+#     # }
+    
+#     return render(request, template_name)
+
+
+# def workout_view(request, workout_name):
+#     print("start")
+#     print(workout_name)
+#     # Get the workout data from the database using the name in the URL
+#     work=Workout.objects.all()
+
+#     print(work)
+#     workout = get_object_or_404(Workout, name=workout_name)
+#     print(workout)
+    
+#     context = {
+#         'workout': workout,  # Pass the workout data to the template
+#     }
+    
+#     return render(request, 'workout_detail.html', context)
+
+
+def workout_view(request, workout_name):
+    # Fetch the workout based on the name
+    workout = get_object_or_404(Workout, name=workout_name)
+    print(workout,'________________________________________________')
+    
+    # Get all exercises related to this workout
+    exercises = workout.exercises_set.all()  # Using the related_name defined in the Exercise model
+
+    context = {
+        'workout': workout,        # Pass the workout details
+        'exercises': exercises,    # Pass the exercises related to this workout
+    }
+
+    return render(request, 'workout_detail.html', context)
+
+
 
 
 def Exe(request):

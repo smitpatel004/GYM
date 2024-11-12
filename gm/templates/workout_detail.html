@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ workout.name }} - Workout</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <!-- Header section -->
+    <div class="header" id="header" style="background-image: url({{ workout.image.url }});">
+        <div class="overlay"></div>
+        <h2 id="workoutTitle">{{ workout.name }}</h2>
+        <p id="workoutDetails">{{ workout.duration }} • {{ exercises|length }} EXERCISES</p>
+    </div>
+
+    <!-- Exercise list -->
+    <div class="exercise-list">
+        <h3>Exercises:</h3>
+        <ul class="workout-list">
+            {% for exercise in exercises %}
+            <li class="workout-item" onclick="changeHeader('{{ exercise.name }}', '{{ exercise.sets }}', '{{ exercise.reps }}', '{{ exercise.image.url }}')">
+                <div class="exercise-image">
+                    <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}">
+                </div>
+                <div class="exercise-details">
+                    <h4>{{ exercise.name }}</h4>
+                    <p>{{ exercise.sets }} sets • {{ exercise.reps }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="#" class="start-button">Start</a>
+
+    <script>
+        // JavaScript to change header content dynamically
+        function changeHeader(name, sets, reps, imageUrl) {
+            document.getElementById('workoutTitle').textContent = name;
+            document.getElementById('workoutDetails').textContent = sets + ' sets • ' + reps;
+            document.getElementById('header').style.backgroundImage = 'url(' + imageUrl + ')';
+        }
+    </script>
+
+</body>
+</html>
